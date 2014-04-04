@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: helix_development
+
+test:
+  adapter: postgresql
+  database: helix_test
