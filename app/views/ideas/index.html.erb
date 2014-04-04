@@ -1,0 +1,13 @@
+<h2>Ideas</h2>
+<h3>Consume View</h3>
+
+<a href="/ideas/new"><button>New Idea!</button></a>
+
+
+<ul>
+  <% @ideas.each do |idea| %>
+    <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
+    <p><%= idea.summary %></p>
+    </li>
+  <% end %>
+</ul>

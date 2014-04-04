@@ -1,0 +1,8 @@
+<h2>Edit: <%= @idea.title %></h2>
+
+<form action="/ideas/<%= @idea.slug %>" method ="post">
+  <input type="hidden" name ="_method" value ="patch">
+  <%= render('form') %>
+ <button>Update Idea</button>
+
+</form>

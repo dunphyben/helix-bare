@@ -20,4 +20,9 @@ describe Idea do
   it { should_not allow_value('12').for(:summary) }
   it { should_not allow_value("#{'m'*10001}").for(:summary) }
 
+  it 'should have a slug' do
+    test_idea = Idea.create({:title => 'Apples to Apples', :content => "#{'m'*143}", :summary => "#{'m'*13}"})
+    Idea.all.first.slug.should eq 'apples-to-apples'
+  end
+
 end

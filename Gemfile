@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'geocoder'
 gem 'textacular'
+gem 'boostrap-sass'
 
 group :development do
   gem 'better_errors'

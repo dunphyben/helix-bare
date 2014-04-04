@@ -1,0 +1,17 @@
+<h2><%= @idea.title %></h2>
+<h3><%= @idea.summary %></h3>
+
+<p><%= @idea.content %></p>
+
+<a href="/ideas/<%= @idea.slug %>/edit"><button>Edit Idea</button></a>
+<a href="/ideas"><button>Return to Ideas</button></a>
+
+<br>
+<br>
+<a href="/ideas/<%= @idea.slug %>"
+  data-confirm="Confirm Deletion of Idea?"
+  data-method="delete"
+  rel="nofollow"><button>Delete Idea</button></a>
+
+
+
