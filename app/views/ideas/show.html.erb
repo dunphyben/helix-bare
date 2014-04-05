@@ -3,7 +3,9 @@
 
 <p><%= @idea.content %></p>
 
-<a href="/ideas/<%= @idea.slug %>/edit"><button>Edit Idea</button></a>
+<% if !@idea.published %>
+  <a href="/ideas/<%= @idea.slug %>/edit"><button>Edit/Publish Idea</button></a>
+<% end %>
 <a href="/ideas"><button>Return to Ideas</button></a>
 
 <br>
@@ -13,5 +15,20 @@
   data-method="delete"
   rel="nofollow"><button>Delete Idea</button></a>
 
+
+<% if @idea.tags.length > 0 %>
+<p>Tags:
+    <% @idea.tags.each do |tag| %>
+    <a href="tag/<%tag.id%>"><%= tag.name %></a>
+    <!--Link for tag not working. Should display all ideas with that tag by top voted.-->
+    <% end %></p>
+<% end %>
+
+<form action="/ideas/<%= @idea.slug %>" method ="post">
+<p><label for="idea_tags">Add Tags to this idea:</label>
+  <p>Separate each tag by a comma</p>
+  <input id="idea_tags" name="tag" type="text"></p>
+  <button>Add Tags</button>
+</form>
 
 

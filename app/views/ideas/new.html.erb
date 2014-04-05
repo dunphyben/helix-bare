@@ -2,5 +2,6 @@
 
 <form action="/ideas/new" method="post">
  <%= render('form') %>
+ <input id="idea_published" name="idea[published]" value="false" type="hidden">
  <button>Add Idea</button>
 </form>

@@ -33,26 +33,16 @@ class Idea < ActiveRecord::Base
 
 
   def slugify
-    # if slug == nil
-      self.slug = self.title.downcase.gsub(" ", "-")
-      # self.update_attributes(:slug => self.slug)
-    # end
+    self.slug = self.title.downcase.gsub(" ", "-")
   end
 
-  def unpublished_ideas
-
+  def self.unpublished
+    @unpublished = Idea.where('published = false')
   end
 
-  def published_ideas
-
+  def self.published
+    @published = Idea.where('published = true')
   end
 
-  # def to_param
-  #   slug
-  # end
-
-  # def slugify
-  #   self.slug = self.title.parameterize
-  # end
 
 end

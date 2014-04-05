@@ -4,8 +4,18 @@
 <a href="/ideas/new"><button>New Idea!</button></a>
 
 
+<h4>Published Ideas</h4>
 <ul>
-  <% @ideas.each do |idea| %>
+  <% @published.each do |idea| %>
+    <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
+    <p><%= idea.summary %></p>
+    </li>
+  <% end %>
+</ul>
+
+<h4>Unpublished Ideas</h4>
+<ul>
+  <% @unpublished.each do |idea| %>
     <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
     <p><%= idea.summary %></p>
     </li>

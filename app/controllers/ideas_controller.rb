@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
 
   def index
-    @ideas = Idea.all
+    @published = Idea.published
+    @unpublished = Idea.unpublished
     render('ideas/index.html.erb')
   end
 

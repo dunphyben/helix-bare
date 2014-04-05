@@ -3,6 +3,13 @@
 <form action="/ideas/<%= @idea.slug %>" method ="post">
   <input type="hidden" name ="_method" value ="patch">
   <%= render('form') %>
- <button>Update Idea</button>
+ <button>Save</button>
 
+</form>
+
+<form action="/ideas/<%= @idea.slug %>" method ="post">
+  <input type="hidden" name ="_method" value ="patch">
+  <% render('form') %>
+  <input type="hidden" id="idea_published" name="idea[published]" value="true">
+  <button>Publish</button>
 </form>
