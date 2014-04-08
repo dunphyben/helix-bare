@@ -11,4 +11,14 @@ Helix::Application.routes.draw do
   #tags****************
   match('tags', {:via => :get, :to => 'tags#index'})
 
+  root :to => 'ideas#index'
+  resources :ideas do
+    resources :formats, :only => [:create]
+    #create tags only from the idea page. Other references are just links.
+  end
+  resources :formats
+  resources :tags
+  resources :users
+
+
 end

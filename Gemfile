@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'geocoder'
 gem 'textacular'
 gem 'boostrap-sass'
+gem 'friendly_id'
 
 group :development do
   gem 'better_errors'

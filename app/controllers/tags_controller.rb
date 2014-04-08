@@ -17,4 +17,10 @@ class TagsController < ApplicationController
     render('ideas/show.html.erb')
 
   end
+
+private
+  def user_params
+    params.require(:tag).permit(params[:name])
+  end
+
 end

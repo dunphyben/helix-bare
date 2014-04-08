@@ -8,6 +8,8 @@ class Idea < ActiveRecord::Base
   validates :content, :presence => true
   validates :summary, :presence => true
 
+
+
   before_save :slugify
 
   validates :title, length: {

@@ -12,7 +12,8 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(params[:idea])
+    @idea = Idea.new(user_params)
+
     if @idea.save
       #flash
       redirect_to("/ideas/#{@idea.slug}")
@@ -33,7 +34,7 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find_by_slug(params[:slug])
-    if @idea.update(params[:idea])
+    if @idea.update(user_params)
       redirect_to("/ideas/#{@idea.slug}")
     else
       render("ideas/edit.html.erb")
@@ -45,5 +46,13 @@ class IdeasController < ApplicationController
     @idea.destroy
     redirect_to('/ideas')
   end
+
+private
+  def user_params
+    params.require(:idea).permit([:title,
+                                 :summary,
+                                 :content,
+                                 :published])
+end
 
 end
